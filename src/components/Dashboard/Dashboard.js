@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import House from '../House/House';
 import axios from 'axios';
+import './Dashboard.css';
 
 export default class Dashboard extends Component{
     constructor(){
@@ -18,18 +19,25 @@ export default class Dashboard extends Component{
             })
         })
     }
+    deleteHouse(id){
+        axios.delete(`/api/houses/:${id}`).then(res=>{
+        console.log(res)
+        })
+    }
 render(){
     const {houses} = this.state;
     let showHouses = houses.map((house)=>{
         return(
-            <House name={house.name} address={house.address} city={house.city} state={house.state} zip={house.zip} />
+            <House deleteHouse={this.deleteHouse} id={houses.id} name={house.name} address={house.address} city={house.city} state={house.state} zip={house.zip} />
         )
     })
     return(
-        <div>
-            <div>Dashboard</div>
-            {showHouses}
+        <div className='dashBox'>
+            <div className='subheader'><h1>Dashboard</h1>
             <Link to='/wizard'><button className='addProp'>Add New Property</button></Link>
+            </div>
+            {showHouses}
+            
         </div>
     )
     }

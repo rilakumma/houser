@@ -1,0 +1,25 @@
+.dashBox {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: #E5F4EC;
+    height: 100vh;
+    width: 700px;
+}
+.subheader{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid black 1px;
+    color: #3B5249;
+    width:100%;
+    vertical-align: baseline;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.addProp {
+    background-color: #8AEA92;
+    height:35px;
+    width:200px;
+}

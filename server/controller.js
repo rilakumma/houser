@@ -15,5 +15,13 @@ module.exports ={
         .catch(error=>{
             console.log('error cannot add house', error);
         })
+    },
+    delete: (req,res)=>{
+        const database=req.app.get('db');
+        const {id} = req.params;
+        database.delete_house({id}).then(houses=>{ res.status(200).json(houses)})
+        .catch(error=>{
+            console.log('error deleting house', error);
+        })
     }
 }

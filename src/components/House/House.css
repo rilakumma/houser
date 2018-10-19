@@ -1,0 +1,8 @@
+.houseBox{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dedede;
+    width: 100%;
+    height: 100%;
+}

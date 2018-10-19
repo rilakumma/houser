@@ -19,3 +19,4 @@ app.listen(4000, ()=>{
 
 app.get('/api/houses', controller.getHouses);
 app.post('/api/houses', controller.addHouse);
+app.delete('/api/houses/:id', controller.delete);

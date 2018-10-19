@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import './Wizard.css';
 
 export default class Wizard extends Component{
     constructor(){
@@ -48,14 +49,19 @@ render(){
     const {name,address,city,state,zip} = this.state;
     return(
         <div>
-            <div>Wizard</div>
+            <div className='wizheader'>
+            <h1>Add New Listing</h1>
+            <Link to='/'><button className='addProp'>Cancel</button></Link>
+            </div>
+
+            <div className='inputs'>
             <input type="text" onChange={(e)=> this.updateName(e.target.value)}/>
             <input type="text" onChange={(e)=> this.updateAddy(e.target.value)}/>
             <input type="text" onChange={(e)=> this.updateCity(e.target.value)}/>
             <input type="text" onChange={(e)=> this.updateState(e.target.value)}/>
             <input type="text" onChange={(e)=> this.updateZip(e.target.value)}/>
-            <Link to='/'><button className='addProp'>Cancel</button></Link>
-            <button onClick={()=> {this.postProduct(name,address,city,state,zip)}}>Complete</button>
+            <button className='addProp' onClick={()=> {this.postProduct(name,address,city,state,zip)}}>Complete</button>
+            </div>
         </div>
     )
     }
