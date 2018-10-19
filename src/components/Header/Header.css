@@ -1,0 +1,15 @@
+.Header > .head{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    padding: 25px;
+    background-color: #519872;
+    color: white;
+}
+
+img {
+    height:40px;
+    width: 40px;
+}
