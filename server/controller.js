@@ -13,13 +13,14 @@ module.exports ={
         const {name,address,city,state,zip} = req.body;
         database.add_house({name,address,city,state,zip}).then(houses=>{res.status(200).json(houses)})
         .catch(error=>{
+            res.status(500).send('ERROR')
             console.log('error cannot add house', error);
         })
     },
     delete: (req,res)=>{
         const database=req.app.get('db');
         const {id} = req.params;
-        database.delete_house({id}).then(houses=>{ res.status(200).json(houses)})
+        database.delete_house({id: id}).then(houses=>{ res.status(200).json(houses)})
         .catch(error=>{
             console.log('error deleting house', error);
         })

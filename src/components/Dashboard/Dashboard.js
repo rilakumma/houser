@@ -10,6 +10,7 @@ export default class Dashboard extends Component{
         this.state={
             houses:[]
         }
+        // this.deleteHouse=this.deleteHouse.bind(this);
     }
     componentDidMount(){
         axios.get('/api/houses').then(res=>{
@@ -20,8 +21,8 @@ export default class Dashboard extends Component{
         })
     }
     deleteHouse(id){
-        axios.delete(`/api/houses/:${id}`).then(res=>{
-        console.log(res)
+        axios.delete(`/api/houses/${id}`).then(()=>{
+            console.log(id)
         })
     }
 render(){
@@ -34,7 +35,7 @@ render(){
     return(
         <div className='dashBox'>
             <div className='subheader'><h1>Dashboard</h1>
-            <Link to='/wizard'><button className='addProp'>Add New Property</button></Link>
+            <Link to='/wizard/step1'><button className='addProp'>Add New Property</button></Link>
             </div>
             {showHouses}
             
